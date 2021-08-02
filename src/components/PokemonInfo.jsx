@@ -1,12 +1,8 @@
 import React from 'react';
-import { useContext } from 'react';
-import PokemonContext from '../PokemonContext';
-import PokemonType from '../PokemonType';
+import { useSelector } from 'react-redux';
 
 const PokemonInfo = () => {
-  const {
-    state: { selectedPokemon },
-  } = useContext(PokemonContext);
+  const selectedPokemon = useSelector((state) => state.selectedPokemon);
 
   return selectedPokemon ? (
     <div>
@@ -24,6 +20,5 @@ const PokemonInfo = () => {
     </div>
   ) : null;
 };
-PokemonInfo.propTypes = PokemonType;
 
 export default PokemonInfo;
